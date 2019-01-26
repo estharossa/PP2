@@ -11,6 +11,7 @@ namespace Lesson1
         static void Main(string[] args)
         {
             Console.WriteLine("Hello");
+
             //string s1 = Console.ReadLine();
             //int a = Convert.ToInt32(Console.ReadLine());
             //int b = int.Parse(s1);
@@ -26,7 +27,6 @@ namespace Lesson1
                 sum = sum + int.Parse(arr[i]);
             }
             Console.WriteLine(sum);
-
             Console.ReadKey();
         }
     }
