@@ -1,0 +1,7 @@
+C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lesson1\bin\Debug\Lesson1.exe.config
+C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lesson1\bin\Debug\Lesson1.exe
+C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lesson1\bin\Debug\Lesson1.pdb
+C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lesson1\obj\Debug\Lesson1.csprojAssemblyReference.cache
+C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lesson1\obj\Debug\Lesson1.csproj.CoreCompileInputs.cache
+C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lesson1\obj\Debug\Lesson1.exe
+C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lesson1\obj\Debug\Lesson1.pdb
