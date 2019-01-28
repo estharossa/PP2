@@ -1,7 +1,0 @@
-C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lab1\bin\Debug\Lab1.exe.config
-C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lab1\bin\Debug\Lab1.exe
-C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lab1\bin\Debug\Lab1.pdb
-C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
-C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lab1\obj\Debug\Lab1.csproj.CoreCompileInputs.cache
-C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lab1\obj\Debug\Lab1.exe
-C:\Users\Daniyar\Desktop\pp2\week1\Lesson1\Lab1\obj\Debug\Lab1.pdb
