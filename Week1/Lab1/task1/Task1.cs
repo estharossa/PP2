@@ -10,6 +10,7 @@ namespace Lab1
     {
             public static bool IsPrime(int k)
             {
+            
                 for (int i = 2; i <= Math.Sqrt(k); i++)
                 {
                     if (k % i == 0)
@@ -23,21 +24,24 @@ namespace Lab1
 
             static void Main(string[] args)
             {
-                int n = int.Parse(Console.ReadLine());
-                int[] a = new int[n];
-                for (int i = 0; i < n; i++)
+            
+            List<string> list = new List<string>();
+            int n = int.Parse(Console.ReadLine());
+            string[] arr = Console.ReadLine().Split();
+                foreach (string z in arr)
+            {
+                if (IsPrime(int.Parse(z)) == false)
                 {
-                    int l = int.Parse(Console.ReadLine());
-                    a[i] = l;
+                    if (int.Parse(z) == 1) continue;
+                    list.Add(z);
                 }
-                foreach (int c in a)
-                {
-                    if (IsPrime(c) == false)
-                    {
-                        Console.Write(c + " ");
-                    }
-                }
-                Console.ReadKey();
+            }
+            Console.WriteLine(list.Count);
+            foreach(string a in list)
+            {
+                Console.Write(a + " ");
+            }
+            Console.ReadKey();
             }
     }
 }

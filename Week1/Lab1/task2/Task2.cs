@@ -12,10 +12,10 @@ namespace Lab1_2
         string id;
         int yearOfStudy;
 
-        public Student(string name, string id)
+        public Student(string nameOfStudent, string currentId)
         {
-            this.name = name;
-            this.id = id;
+            this.name = nameOfStudent;
+            this.id = currentId;
             yearOfStudy = 0;
             
         }
