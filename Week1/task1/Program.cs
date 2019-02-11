@@ -8,27 +8,27 @@ namespace Lab1
 {
     class Task1
     {
-            public static bool IsPrime(int k) // initializing the method to find prime number
+        public static bool IsPrime(int k) // initializing the method to find prime number
+        {
+
+            for (int i = 2; i <= Math.Sqrt(k); i++) // loop to check if the particular number has divisors
             {
-            
-                for (int i = 2; i <= Math.Sqrt(k); i++) // loop to check if the particular number has divisors
+                if (k % i == 0)
                 {
-                    if (k % i == 0)
-                    {
-                        return true; // true for composite
-                    }
+                    return true; // true for composite
                 }
-                return false; // false for prime
             }
+            return false; // false for prime
+        }
 
 
-            static void Main(string[] args)
-            {
-            
+        static void Main(string[] args)
+        {
+
             List<string> list = new List<string>(); // initializing dynamic array
             int n = int.Parse(Console.ReadLine());
             string[] arr = Console.ReadLine().Split(); // creating array from string 
-                foreach (string z in arr) // using loop to check every string in array
+            foreach (string z in arr) // using loop to check every string in array
             {
                 if (IsPrime(int.Parse(z)) == false) // using condition to check every string in array
                 {
@@ -37,11 +37,11 @@ namespace Lab1
                 }
             }
             Console.WriteLine(list.Count); // outputting the list size
-            foreach(string a in list)
+            foreach (string a in list)
             {
                 Console.Write(a + " "); //outputting the elements of the list
             }
             Console.ReadKey();
-            }
+        }
     }
 }

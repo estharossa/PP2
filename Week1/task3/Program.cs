@@ -14,17 +14,17 @@ namespace task3
             string s = Console.ReadLine();
             string[] a = s.Split(); // creating array from string
             List<string> list = new List<string>(); // creating the list
-            foreach(string k in a) // using loop to fill the list
+            foreach (string k in a) // using loop to fill the list
             {
                 list.Add(k); // adding twice to the list
                 list.Add(k);
             }
-            foreach(string k in list)
+            foreach (string k in list)
             {
                 Console.Write(k + " "); // outputting the list
 
             }
-            
+
             Console.ReadKey();
         }
     }

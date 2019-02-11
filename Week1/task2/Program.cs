@@ -17,7 +17,7 @@ namespace Lab1_2
             this.name = nameOfStudent;
             this.id = currentId;
             yearOfStudy = 0;
-            
+
         }
 
         public void getInfo()

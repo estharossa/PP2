@@ -46,7 +46,7 @@ namespace Task4
                 Console.WriteLine(e.Message);
                 return;
             }
-            Console.ReadKey();
+            
         }
     }
 }
