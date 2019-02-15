@@ -139,7 +139,8 @@ namespace Far_manager
                 {
                     if (currentFs.GetType() == typeof(DirectoryInfo))
                     {
-                        currentFs.Delete();
+                        DirectoryInfo dir = new DirectoryInfo(currentFs.FullName);
+                        dir.Delete(true);
        
                     }
                     if (currentFs.GetType() == typeof(FileInfo))
