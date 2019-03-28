@@ -10,6 +10,7 @@ namespace Far_manager
         public bool ok;
         DirectoryInfo directory = null;
         FileSystemInfo currentFs = null;
+       
 
         public FarManager()
         {
@@ -44,6 +45,34 @@ namespace Far_manager
                 Console.ForegroundColor = ConsoleColor.Yellow;
             }
         }
+        public int countFiles (FileSystemInfo[] fs)
+        {
+            int numFiles = 0;
+            for (int i = 0; i < fs.Length; i++)
+            {
+                if (fs[i].GetType() == typeof(FileInfo))
+                {
+                    numFiles++;
+                }
+            }
+            return numFiles;
+           
+
+        }
+
+        public int countDirs(FileSystemInfo[] fs)
+        {
+            int numDirs = 0;
+            for (int i = 0; i < fs.Length; i++)
+            {
+                if (fs[i].GetType() == typeof(DirectoryInfo))
+                {
+                    numDirs++;
+                }
+            }
+            return numDirs;
+
+        }
 
         public void Show()
         {
@@ -51,6 +80,7 @@ namespace Far_manager
             Console.Clear();
             directory = new DirectoryInfo(path);
             FileSystemInfo[] fs = directory.GetFileSystemInfos();
+            
             for (int i = 0, k = 0; i < fs.Length; i++)
             {
                 if (ok == false && fs[i].Name[0] == '.')
@@ -58,9 +88,13 @@ namespace Far_manager
                     continue;
                 }
                 Color(fs[i], k);
-                Console.WriteLine(fs[i].Name);
+                Console.WriteLine(i+1+". "+fs[i].Name);
+                
                 k++;
             }
+            Console.WriteLine();
+            Console.WriteLine("Number of directories: "+countDirs(fs));
+            Console.WriteLine("Number of files: "+countFiles(fs));
         }
         public void Up()
         {
@@ -188,6 +222,7 @@ namespace Far_manager
             string path = "/Users/Daniyar/Desktop/PP2";
             FarManager farManager = new FarManager(path);
             farManager.Start();
+
         }
     }
 }
