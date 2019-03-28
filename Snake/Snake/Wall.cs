@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Xml.Serialization;
 namespace Snake
 {
+    [Serializable]
     public class Wall:GameObject
     {
         enum GameLevel
@@ -22,6 +24,10 @@ namespace Snake
             body = new List<Point>();
         }
 
+        public Wall()
+        {
+
+        }
         public void LoadLevel()
         {
             body = new List<Point>();
@@ -47,5 +53,23 @@ namespace Snake
                 gameLevel = GameLevel.THIRD;
             LoadLevel();
         }
+        /*
+        public void Save()
+        {
+
+            FileStream fs = new FileStream("wall.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            XmlSerializer xs = new XmlSerializer(typeof(Wall));
+            xs.Serialize(fs, Program.game.wall);
+            Console.WriteLine("Saved");
+            fs.Close();
+        }
+        public void Resume()
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(Wall));
+            FileStream fs = new FileStream("wall.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            Program.game.wall = xs.Deserialize(fs) as Wall;
+
+        }
+        */
     }
 }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using System.IO;
+using System.Xml.Serialization;
 namespace Snake
 {
+    [Serializable]
     public class Game
     {
         List<GameObject> g_objects;
@@ -15,6 +17,7 @@ namespace Snake
         public Food food;
         public Wall wall;
         public Borders borders;
+
         public Game()
         {
             g_objects = new List<GameObject>();
@@ -43,6 +46,18 @@ namespace Snake
             while (isAlive && keyInfo.Key != ConsoleKey.Escape)
             {
                 keyInfo = Console.ReadKey();
+                if (keyInfo.Key == ConsoleKey.S)
+                {
+                    Save();
+                    snake.Move();
+
+                }
+                if (keyInfo.Key == ConsoleKey.R)
+                {
+                    Resume();
+
+                    Console.Clear();
+                }
                 snake.ChangeDirection(keyInfo);
             }
             Console.Clear();
@@ -80,6 +95,26 @@ namespace Snake
             Console.Clear();
             foreach (GameObject g in g_objects)
                 g.Draw();
+        }
+
+        public void Save()
+        {
+            File.Delete("game.xml");
+            FileStream fs = new FileStream("game.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            XmlSerializer xs = new XmlSerializer(typeof(Game));
+            xs.Serialize(fs, Program.game);
+            Console.SetCursorPosition(30, 30);
+            Console.WriteLine("Saved");
+            fs.Close();
+        }
+        public void Resume()
+        {
+            Console.SetCursorPosition(50, 10);
+            Console.Write("GGGGGGGGGGGGG");
+            FileStream fs = new FileStream("game.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            XmlSerializer xs = new XmlSerializer(typeof(Game));
+            Program.game = (Game)xs.Deserialize(fs);
+            fs.Close();
         }
     }
         

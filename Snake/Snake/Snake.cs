@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
+using System.Xml.Serialization;
 namespace Snake
 {
+    [Serializable]
     public class Snake:GameObject
     {
         public enum Direction
@@ -21,7 +23,10 @@ namespace Snake
         {
 
         }
+        public Snake()
+        {
 
+        }
         public void Move()
         {
             for (int i = body.Count - 1; i > 0; i--)
@@ -54,7 +59,27 @@ namespace Snake
                     direction = Direction.LEFT;
                 if (keyInfo.Key == ConsoleKey.RightArrow)
                     direction = Direction.RIGHT;
+            if (keyInfo.Key == ConsoleKey.S)
+                direction = Direction.NONE;
             
         }
+        /*
+        public void Save()
+        {
+
+            FileStream fs = new FileStream("snake.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            XmlSerializer xs = new XmlSerializer(typeof(Snake));
+            xs.Serialize(fs, Program.game.snake);
+            Console.WriteLine("Saved");
+            fs.Close();
+        }
+        public void Resume()
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(Snake));
+            FileStream fs = new FileStream("snake.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            Program.game.snake = xs.Deserialize(fs) as Snake;
+
+        }
+        */
     }
 }

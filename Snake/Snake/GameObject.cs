@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
+using System.Xml.Serialization;
 namespace Snake
 {
+    [Serializable]
     public class GameObject
     {
         public List<Point> body;
@@ -24,6 +26,10 @@ namespace Snake
 
             this.sign = sign;
             this.color = color;
+        }
+        public GameObject()
+        {
+
         }
         
         public void Draw()
@@ -54,6 +60,6 @@ namespace Snake
             return false;
         }
         
-       
+
     }
 }
