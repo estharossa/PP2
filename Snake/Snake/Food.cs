@@ -7,7 +7,6 @@ using System.IO;
 using System.Xml.Serialization;
 namespace Snake
 {
-    [Serializable]
     public class Food:GameObject
     {
         public Food(int x, int y, char sign, ConsoleColor color) : base(x, y, sign, color)

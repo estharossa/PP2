@@ -33,31 +33,32 @@ namespace Snake
             g_objects.Add(snake);
             g_objects.Add(food);
             g_objects.Add(wall);
-            g_objects.Add(borders);
+            //g_objects.Add(borders);
             isAlive = true;
         }
 
         public void Start()
         {
-            ConsoleKeyInfo keyInfo = Console.ReadKey();
+            //ConsoleKeyInfo keyInfo = Console.ReadKey();
             Thread thread = new Thread(MoveSnake);
             thread.Start();
 
-            while (isAlive && keyInfo.Key != ConsoleKey.Escape)
+            while (isAlive )
             {
-                keyInfo = Console.ReadKey();
+                ConsoleKeyInfo keyInfo = Console.ReadKey();
                 if (keyInfo.Key == ConsoleKey.S)
                 {
                     Save();
-                    snake.Move();
+
 
                 }
                 if (keyInfo.Key == ConsoleKey.R)
                 {
                     Resume();
+                    //MoveSnake();
 
-                    Console.Clear();
                 }
+
                 snake.ChangeDirection(keyInfo);
             }
             Console.Clear();
@@ -86,6 +87,7 @@ namespace Snake
                 {
                     isAlive = false;
                 }
+
                 Draw();
                 Thread.Sleep(200);
             }
@@ -96,10 +98,11 @@ namespace Snake
             foreach (GameObject g in g_objects)
                 g.Draw();
         }
-
+        
         public void Save()
         {
-            File.Delete("game.xml");
+            if (File.Exists("game.xml"))
+                File.Delete("game.xml");
             FileStream fs = new FileStream("game.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             XmlSerializer xs = new XmlSerializer(typeof(Game));
             xs.Serialize(fs, Program.game);
@@ -109,11 +112,12 @@ namespace Snake
         }
         public void Resume()
         {
-            Console.SetCursorPosition(50, 10);
-            Console.Write("GGGGGGGGGGGGG");
+
             FileStream fs = new FileStream("game.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             XmlSerializer xs = new XmlSerializer(typeof(Game));
             Program.game = (Game)xs.Deserialize(fs);
+            Console.SetCursorPosition(30, 30);
+            Console.WriteLine("Resumed");
             fs.Close();
         }
     }

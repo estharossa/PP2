@@ -7,7 +7,6 @@ using System.IO;
 using System.Xml.Serialization;
 namespace Snake
 {
-    [Serializable]
     public class GameObject
     {
         public List<Point> body;
@@ -16,9 +15,7 @@ namespace Snake
 
         public GameObject(int x, int y, char sign, ConsoleColor color)
         {
-            //body = new List<Point>();
-            //Point p = new Point(x, y);
-            //body.Add(p);
+           
             body = new List<Point>
             {
                 new Point(x, y)
@@ -51,7 +48,6 @@ namespace Snake
 
         public bool IsCollisionWithObject(GameObject obj)
         {
-            // Check obj is instance of Snake 
             foreach (Point p in obj.body)
             {
                 if (body[0].x == p.x && body[0].y == p.y)

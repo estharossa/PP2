@@ -7,7 +7,6 @@ using System.IO;
 using System.Xml.Serialization;
 namespace Snake
 {
-    [Serializable]
     public class Borders : GameObject
     {
         public Borders(char sign, ConsoleColor color) : base(0, 0, sign, color)

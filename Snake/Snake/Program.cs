@@ -13,12 +13,13 @@ namespace Snake
         public static Game game = new Game();
         static void Main(string[] args)
         {
+
+            
+            Console.SetWindowSize(60, 20);
             Console.CursorVisible = false;
+
             game.Start();
            
-            
-            
-
 
         }
         

@@ -7,7 +7,7 @@ using System.IO;
 using System.Xml.Serialization;
 namespace Snake
 {
-    [Serializable]
+  
     public class Wall:GameObject
     {
         enum GameLevel
